@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsubscribe from CAFU Emails</title>
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .logo {
+            margin-bottom: 30px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        h1 {
+            color: #1a202c;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        p {
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .email-display {
+            background: rgba(78, 188, 202, 0.08);
+            padding: 12px 20px;
+            border-radius: 8px;
+            color: #4EBCCA;
+            font-weight: 600;
+            margin: 20px 0;
+            word-break: break-all;
+        }
+
+        .button {
+            background: #4EBCCA;
+            color: #ffffff;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .button:hover {
+            background: #3da8b6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(78, 188, 202, 0.2);
+        }
+
+        .success-message {
+            display: none;
+            color: #38a169;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+                margin-top: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://cafu.app/create_media/june_edms/new/logo.png" alt="CAFU Logo">
+        </div>
+        
+        <h1>Unsubscribe from CAFU Emails</h1>
+        <p>We're sorry to see you go. You are about to unsubscribe the following email address from our mailing list:</p>
+        
+        <div class="email-display" id="emailDisplay">
+            Loading...
+        </div>
+
+        <p>Once confirmed, you will no longer receive marketing emails from CAFU.</p>
+        
+        <button class="button" onclick="handleUnsubscribe()">
+            Confirm Unsubscribe
+        </button>
+
+        <p class="success-message" id="successMessage">
+            You have been successfully unsubscribed from CAFU marketing emails.
+        </p>
+    </div>
+
+    <script>
+        // Get email from URL parameters
+        function getEmailFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('email') || 'Email not found';
+        }
+
+        // Display email on page load
+        document.getElementById('emailDisplay').textContent = getEmailFromURL();
+
+        // Handle unsubscribe button click (demo)
+        function handleUnsubscribe() {
+            // Hide the button
+            document.querySelector('.button').style.display = 'none';
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
